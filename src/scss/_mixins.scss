@@ -1,0 +1,30 @@
+@mixin button($bg, $border, $color) {
+    padding: 0.75rem 2rem;
+    display: inline-block;
+    color: $color;
+    font-size: 1rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    line-height: 1;
+    background: $bg;
+    border: 1px solid $border;
+}
+
+@mixin fullwidth-bg() {
+    position: relative;
+
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        z-index: -1;
+        width: 50%;
+        height: 100%;
+        background: inherit;
+    }
+
+    &::after { right: 100%; }
+
+    &::before { left: 100%; }
+}

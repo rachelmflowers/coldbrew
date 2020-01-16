@@ -1,0 +1,24 @@
+#page--footer {
+    padding-top: $section-pad-sm;
+    padding-bottom: $section-pad;
+    color: $off-white;
+    background: $warm-black;
+
+    > .container {
+        text-align: center;
+    }
+
+    .logo {
+        margin: 0 auto 3rem;
+    }
+
+    .copyright {
+        font-size: 0.8rem;
+
+        + div {
+            font-size: 0.65rem;
+
+            a { color: $primary; }
+        }
+    }
+}

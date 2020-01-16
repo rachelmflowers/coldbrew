@@ -1,0 +1,98 @@
+.intro {
+    border-bottom: 1px solid $tertiary;
+    box-shadow: 0 6px 5px -4px rgba($tertiary, 0.35);
+
+    &--text {
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+        grid-column: 3 / 9;
+
+        h2 { color: $secondary; }
+
+        .btn-tertiary { margin-top: 2rem; }
+    }
+
+    &--image {
+        grid-column: 10 / -1;
+        background: url('../images/coffee-roaster.jpg') no-repeat;
+        background-size: cover;
+    }
+}
+
+.how-it-works {
+    padding-top: $section-pad;
+    padding-bottom: $section-pad;
+
+    h2 {
+        grid-column: 1 / -1;
+        text-align: center;
+    }
+
+    .step {
+        grid-column-end: span 4;
+        text-align: center;
+
+        &:first-of-type {
+            grid-column-start: 3;
+        }
+
+        &--icon {
+            margin-bottom: 2rem;
+        }
+
+        &--text {
+            h3 { color: $secondary; }
+        }
+    }
+}
+
+.sign-up {
+    padding-top: $section-pad-sm;
+    padding-bottom: $section-pad-sm;
+    text-align: center;
+    background: $secondary;
+    // background: url('../images/background-texture.jpg') no-repeat;
+    // background-size: cover;
+
+    @include fullwidth-bg();
+
+    h2 {
+        color: $primary;
+        text-align: center;
+    }
+
+    p {
+        color: $off-white;
+    }
+
+    .form {
+        margin-top: 3rem;
+
+        &-group {
+            grid-column: 7 / span 5;
+
+            &:first-of-type {
+                grid-column: 3 / span 4;
+            }
+
+            &:nth-child(3) {
+                grid-column: 12 / span 3;
+            }
+        }
+
+        &-control {
+            color: $off-white;
+
+            &::placeholder { color: rgba($off-white, 0.8); }
+        }
+
+        &-actions {
+            grid-column: 1 / -1;
+        }
+    }
+}
+
+.lead-gen {
+    background: $warm-black;
+    @include fullwidth-bg();
+}

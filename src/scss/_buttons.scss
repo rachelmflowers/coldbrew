@@ -1,0 +1,15 @@
+.btn {
+
+    &-primary {
+        @include button($primary, $primary, $warm-black);
+    }
+
+    &-secondary {
+        @include button($secondary, $secondary, $off-white);
+    }
+
+    &-tertiary {
+        @include button($tertiary, $tertiary, $off-white);
+    }
+
+}

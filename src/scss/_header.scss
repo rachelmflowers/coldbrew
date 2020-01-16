@@ -1,0 +1,51 @@
+#page--header {
+    position: relative;
+    background: url('../images/pageheader.jpg') no-repeat center bottom $warm-black;
+    border-top: 5px solid $off-white;
+
+    &::before,
+    &::after {
+        position: absolute;
+        left: 0;
+        content: '';
+        width: 100%;
+        height: 5px;
+
+    }
+
+    &::before {
+        top: 0;
+        background: $primary;
+    }
+    
+    &::after {
+        top: 5px;
+        background: $tertiary;
+    }
+
+    .container {
+        text-align: center;
+    }
+
+    .logo {
+        margin: 3rem auto 0;
+        grid-column: 1 / -1;
+    }
+}
+
+.hero {
+    padding-top: 4.5rem;
+    padding-bottom: 5rem;
+    grid-column: 8 / -1;
+    grid-row: 2;
+
+    &--text {
+        text-align: left;
+
+        h1 { color: $primary; }
+
+        p {
+            color: $off-white;
+        }
+    }
+}
