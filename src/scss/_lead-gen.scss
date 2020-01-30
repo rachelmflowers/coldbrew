@@ -1,20 +1,9 @@
-@media screen and (max-width: 640px){
-    #og_iframe {
-        height: 500px;
-        width:100%;
-    }
-}
+#og_iframe {
+    height: 680px;
+    width: 100%;
 
-@media screen and (min-width: 641px) and (max-width: 1024px){
-    #og_iframe{
-        height: 500px;
-        width:100%;
-    }
-}
-
-@media screen and (min-width: 1025px){
-    #og_iframe{
-        height: 680px;
-        width:100%;
+    @media screen and (max-width: 480px) {
+        margin-left: -1rem;
+        width: calc(100% + 2rem);
     }
 }

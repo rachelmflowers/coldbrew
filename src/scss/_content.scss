@@ -3,9 +3,26 @@
     box-shadow: 0 6px 5px -4px rgba($tertiary, 0.35);
 
     &--text {
-        padding-top: 4rem;
-        padding-bottom: 4rem;
-        grid-column: 3 / 9;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+
+        @include breakpoint(md) {
+            padding-top: 3rem;
+            padding-bottom: 3rem;
+            grid-column: 1 / 6;
+        }
+
+        @include breakpoint(lg) {
+            padding-top: 4rem;
+            padding-bottom: 4rem;
+            grid-column: 2 / 9;
+        }
+
+        @include breakpoint(xl) {
+            padding-top: 4rem;
+            padding-bottom: 4rem;
+            grid-column: 3 / 9;
+        }
 
         h2 { color: $secondary; }
 
@@ -13,15 +30,33 @@
     }
 
     &--image {
-        grid-column: 10 / -1;
         background: url('../images/coffee-roaster.jpg') no-repeat;
         background-size: cover;
+
+        @include breakpoint(md) {
+            grid-column: 6 / -1;
+            margin-right: -1rem;
+        }
+
+        @include breakpoint(lg) {
+            grid-column: 10 / -1;
+        }
     }
 }
 
 .how-it-works {
-    padding-top: $section-pad;
-    padding-bottom: $section-pad;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+
+    @include breakpoint(md) {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+
+    @include breakpoint(lg) {
+        padding-top: $section-pad;
+        padding-bottom: $section-pad;
+    }
 
     h2 {
         grid-column: 1 / -1;
@@ -29,19 +64,52 @@
     }
 
     .step {
-        grid-column-end: span 4;
         text-align: center;
-
-        &:first-of-type {
-            grid-column-start: 3;
-        }
 
         &--icon {
             margin-bottom: 2rem;
+            
+            svg { max-width: 100%; }
         }
 
         &--text {
             h3 { color: $secondary; }
+        }
+
+        @include breakpoint(md) {
+            grid-column-end: span 3;
+
+            .step--icon svg {
+                height: 5rem;
+            }
+    
+            &:first-of-type {
+                grid-column-start: 1;
+            }
+        }
+
+        @include breakpoint(lg) {
+            grid-column-end: span 5;
+
+            .step--icon svg {
+                height: 7rem;
+            }
+    
+            &:first-of-type {
+                grid-column-start: 1;
+            }
+        }
+
+        @include breakpoint(xl) {
+            grid-column-end: span 4;
+
+            .step--icon svg {
+                height: auto;
+            }
+    
+            &:first-of-type {
+                grid-column-start: 3;
+            }
         }
     }
 }
@@ -68,18 +136,6 @@
     .form {
         margin-top: 3rem;
 
-        &-group {
-            grid-column: 7 / span 5;
-
-            &:first-of-type {
-                grid-column: 3 / span 4;
-            }
-
-            &:nth-child(3) {
-                grid-column: 12 / span 3;
-            }
-        }
-
         &-control {
             color: $off-white;
 
@@ -87,7 +143,67 @@
         }
 
         &-actions {
-            grid-column: 1 / -1;
+            margin-top: 2rem;
+        }
+
+        @include breakpoint(md) {
+
+            &-group {
+                grid-column: 4 / span 4;
+
+                &:first-of-type {
+                    grid-column: 1 / span 3;
+                }
+
+                &:nth-child(3) {
+                    grid-column: 8 / span 2;
+                }
+            }
+
+            &-actions {
+                margin-top: 0;
+                grid-column: 1 / -1;
+            }
+        }
+
+        @include breakpoint(lg) {
+
+            &-group {
+                grid-column: 7 / span 5;
+
+                &:first-of-type {
+                    grid-column: 2 / span 5;
+                }
+
+                &:nth-child(3) {
+                    grid-column: 12 / span 3;
+                }
+            }
+
+            &-actions {
+                margin-top: 0;
+                grid-column: 1 / -1;
+            }
+        }
+
+        @include breakpoint(xl) {
+
+            &-group {
+                grid-column: 7 / span 5;
+
+                &:first-of-type {
+                    grid-column: 3 / span 4;
+                }
+
+                &:nth-child(3) {
+                    grid-column: 12 / span 3;
+                }
+            }
+
+            &-actions {
+                margin-top: 0;
+                grid-column: 1 / -1;
+            }
         }
     }
 }

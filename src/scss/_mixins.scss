@@ -1,5 +1,5 @@
 @mixin button($bg, $border, $color) {
-    padding: 0.75rem 2rem;
+    padding: 0.75rem 1rem;
     display: inline-block;
     color: $color;
     font-size: 1rem;
@@ -9,6 +9,10 @@
     background: $bg;
     border: 2px solid $border;
     transition: background 0.3s ease;
+
+    @include breakpoint(md) {
+        padding: 0.75rem 2rem;
+    }
 
     &:hover,
     &:focus {
@@ -32,7 +36,28 @@
         background: inherit;
     }
 
-    &::after { right: 100%; }
+    &::after { right: calc(100% - 1px); }
 
-    &::before { left: 100%; }
+    &::before { left: calc(100% - 1px); }
+}
+
+$breakpoints: (
+    "xl" : (min-width: 1200px),
+    "lg" : (min-width: 1024px),
+    "md" : (min-width: 600px),
+    "sm" : (min-width: 480px),
+    "xs" : (max-width: 320px)
+);
+
+@mixin breakpoint($breakpoint) {
+    @if map-has-key($breakpoints, $breakpoint) {
+        @media #{inspect(map-get($breakpoints, $breakpoint))} {
+            @content;
+        }
+    }
+     // If the key doesn't exist in the map
+    @else {
+        @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+            + "Available breakpoints are: #{map-keys($breakpoints)}.";
+    }
 }

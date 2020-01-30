@@ -1,7 +1,21 @@
 #page--header {
     position: relative;
-    background: url('../images/pageheader.jpg') no-repeat center bottom $warm-black;
+    background: url('../images/pageheader.jpg') no-repeat 7% 0 $warm-black;
+    background-size: cover;
     border-top: 5px solid $off-white;
+
+    @include breakpoint(md) {
+        background-position: 33% 0;
+    }
+
+    @include breakpoint(lg) {
+        background-position: 45% 0;
+    }
+
+    @include breakpoint(xl) {
+        background-size: unset;
+        background-position: center bottom;
+    }
 
     &::before,
     &::after {
@@ -28,18 +42,58 @@
     }
 
     .logo {
-        margin: 3rem auto 0;
-        grid-column: 1 / -1;
+        margin: 2rem auto 0;
+        max-width: 100%;
+
+        svg {
+            max-width: 100%;
+        }
+
+        @include breakpoint(md) {
+            margin-top: 3rem;
+            grid-column: 1 / -1;
+        }
     }
 }
 
 .hero {
-    padding-top: 4.5rem;
-    padding-bottom: 5rem;
-    grid-column: 8 / -1;
-    grid-row: 2;
+    position: relative;
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -1rem;
+        z-index: 0;
+        width: calc(100% + 2rem);
+        height: 100%;
+        background: rgba($warm-black, 0.6);
+    }
+
+    @include breakpoint(md) {
+        padding-top: 4.5rem;
+        padding-bottom: 5rem;
+        grid-column: 5 / -1;
+        grid-row: 2;
+
+        &::before {
+            left: -100%;
+            width: 200%;
+        }
+    }
+
+    @include breakpoint(lg) {
+        grid-column: 8 / -1;
+        grid-row: 2;
+
+        &::before { display: none; }
+    }
 
     &--text {
+        position: relative;
+        z-index: 1;
         text-align: left;
 
         h1 { color: $primary; }
